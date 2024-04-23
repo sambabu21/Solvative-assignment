@@ -50,14 +50,11 @@ export default function Table({ cities,searchParam,setLimit }){
                 </thead>
                 {
                     searchParam?<tbody>
-                    {currentCities?.map((city,i) => 
-                        let image=fetch(`https://countryflagsapi.com/png/${city.countryCode}`).then(res=>res.json)
-                        
-                        return (
+                    {currentCities?.map((city,i) =>  (
                         <tr key={city.id} className="header-bottom">
                         <td className="cell">{i+1}</td>
                         <td className="cell">{city.name}</td>
-                        <td className="cell">{city.country}<img src={}/></td>
+                        <td className="cell">{city.country}</td>
                         </tr>
                     ))}
                         </tbody>
