@@ -8,7 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
   
 Introduction:
-	Designed and developed website based specs mentioned in the repository shared. Users can search for cities and hit enter to view cities in paginated format. There is a user input which lets user limit the number of results called from the api.The website is fully responsive.
+	Designed and developed a website based on specs mentioned in the repository shared. Users can search for cities and hit enter to view cities in paginated table format. There is a user input which lets user limit the number of results called from the api.The website is fully responsive.
  
  Prerequisites:
  
