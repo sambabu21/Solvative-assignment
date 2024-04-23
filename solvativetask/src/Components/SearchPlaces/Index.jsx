@@ -7,12 +7,13 @@ export default function SearchPlaces(){
 
     const [cities,setCities] = useState([])
     const [searchParam,setSearchParam] =useState("")
+    const [limit,setLimit] = useState('5')
    
     const fetchCities = async () => {
             try {
               const response = await axios.get('https://wft-geo-db.p.rapidapi.com/v1/geo/cities', {
                 method: 'GET',
-                params: {  namePrefix: searchParam, limit: '5' },
+                params: {  namePrefix: searchParam, limit: limit },
                 headers: {
                     'X-RapidAPI-Key': 'b4690e0749msh3aca86d736166edp112867jsnb31ed74fb03a',
                     'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'                
@@ -27,9 +28,9 @@ export default function SearchPlaces(){
     
     useEffect(()=>{
         fetchCities()
-    },[searchParam])
+    },[searchParam,limit])
 
-    console.log(cities)
+    console.log(limit)
 
     return(
         <div>
@@ -37,7 +38,7 @@ export default function SearchPlaces(){
                 <h1>Search Places</h1>
             </div>
             <SearchForm setSearchParam={setSearchParam}/>
-            <Table cities={cities} searchParam={searchParam}/>
+            <Table cities={cities} searchParam={searchParam} setLimit={setLimit}/>
         </div>
     )
 }

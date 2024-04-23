@@ -1,6 +1,12 @@
 import { useState } from "react"
+import Pagination from "./Pagination"
 
-export default function Table({ cities,searchParam }){
+export default function Table({ cities,searchParam,setLimit }){
+    //error state for user limit entry greater than 10
+    const [error,setError] = useState(false)
+   
+    //state to hold limit value 
+    const [limitNumber,setLimitNumber] = useState(5)
 
    //state to control pagination
    const [currentPage,setCurrentPage]=useState(1)
@@ -16,30 +22,66 @@ export default function Table({ cities,searchParam }){
        setCurrentPage(number)
    }
 
+   function handleChange(e){
+        const val = e.target.value
+        if(val > 10){
+            setError(true)
+        }else{
+            setError(false)
+            setLimitNumber(val)
+        }
+   }
+
+   function applyLimit(e){
+    e.preventDefault
+    const limit=limitNumber.toString()
+    setLimit(limit)
+    setCurrentPage(1)
+   }
     return(
-        <div>
-            <table>
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Place Name</th>
-                    <th>Country</th>
+        <div className="table-container">
+            {   cities.length!==0?<table className="table">
+                <thead >
+                <tr className="header-top">
+                    <th className="cell">#</th>
+                    <th className="cell">Place Name</th>
+                    <th className="cell">Country</th>
                 </tr>
                 </thead>
                 {
                     searchParam?<tbody>
-                    {currentCities.map((city,i) => (
-                        <tr key={city.id}>
-                        <td>{i+1}</td>
-                        <td>{city.name}</td>
-                        <td>{city.country}</td>
+                    {currentCities?.map((city,i) => 
+                        let image=fetch(`https://countryflagsapi.com/png/${city.countryCode}`).then(res=>res.json)
+                        
+                        return (
+                        <tr key={city.id} className="header-bottom">
+                        <td className="cell">{i+1}</td>
+                        <td className="cell">{city.name}</td>
+                        <td className="cell">{city.country}<img src={}/></td>
                         </tr>
                     ))}
                         </tbody>
-                        :<h1>Start searching</h1>
+                        :<h1 className="search-msg">Start searching</h1>
                 }
-            </table>
-            
+            </table> : <h1>No result found</h1>
+            }
+            {
+            searchParam && 
+            <div className="footer">
+                <Pagination totalPosts={cities.length} postsPerPage={postsPerPage} paginate={paginate} currentPage={currentPage} />
+                <div className="limit">
+                    <div className="limit-container">
+                    <input 
+                        type="number"
+                        value={limitNumber}
+                        onChange={handleChange}
+                        className="search-box"></input>
+                    <button onClick={applyLimit} className="limit-btn">Limit Data</button>
+                    </div>
+                    {error && <p>maximum limit can be set only upto 10</p>}
+                </div>
+            </div>
+            }
         </div>
     )
 }

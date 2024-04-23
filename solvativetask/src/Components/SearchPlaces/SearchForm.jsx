@@ -8,22 +8,23 @@ export default function SearchForm({ setSearchParam }){
     }
     
     const handleSubmit = (e) =>{
-        e.preventdefault
+        e.preventDefault
         setSearchParam(userInput)
     }
     return(
-        <div>
+        <div className="search-container">
             <h2> Search for a place of your choice and hit search.</h2>
-            <input
-                type="text"
-                placeholder="Search places..."
-                className="search-box"
-                name="city"
-                value={userInput}
-                onChange={handleChange}
-            ></input>
-            <button onClick={handleSubmit}>Search</button>
-   
+            <div className="inner-search-container">
+                <input
+                    type="text"
+                    placeholder="Search places..."
+                    className="search-box"
+                    name="city"
+                    value={userInput}
+                    onChange={handleChange}
+                ></input>
+                <button onClick={handleSubmit} className="search-btn">Search</button>
+            </div>
         </div>
     )
 }
