@@ -8,12 +8,8 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
   
 Introduction:
-	Designed and developed website based on Design specs and instructions given. All functionalities have been implemented. Since manage creators navigation link was not specified in the design, i added it to the navbar and made it a protected route. I implemented a dummy sign in for this to follow the design specs. 
- Use the following username and password to login:
-	 
-   	  username:BMACADMIN
-	  password:admin@123
-
+	Designed and developed website based specs mentioned in the repository shared. Users can search for cities and hit enter to view cities in paginated format. There is a user input which lets user limit the number of results called from the api.The website is fully responsive.
+ 
  Prerequisites:
  
 	  Node.js installed on your machine (with npm or yarn).
