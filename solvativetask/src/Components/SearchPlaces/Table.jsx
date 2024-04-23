@@ -54,7 +54,7 @@ export default function Table({ cities,searchParam,setLimit }){
                         <tr key={city.id} className="header-bottom">
                         <td className="cell">{i+1}</td>
                         <td className="cell">{city.name}</td>
-                        <td className="cell">{city.country}</td>
+                        <td className="cell">{city.country} <img src={`https://flagcdn.com/48*36/${city.countryCode}.png`} alt={`${city.country} Flag`}/></td>
                         </tr>
                     ))}
                         </tbody>

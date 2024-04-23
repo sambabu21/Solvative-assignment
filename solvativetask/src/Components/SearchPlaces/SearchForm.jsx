@@ -25,6 +25,7 @@ export default function SearchForm({ setSearchParam }){
                 ></input>
                 <button onClick={handleSubmit} className="search-btn">Search</button>
             </div>
+        
         </div>
     )
 }

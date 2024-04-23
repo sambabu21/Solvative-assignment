@@ -57,6 +57,11 @@
   background-color: rgb(33, 37, 41);
   font-size: 1rem;
 }
+.search-btn:hover{
+  cursor: pointer;
+  background-color: rgb(94, 91, 91);
+}
+
 .search-container{
   display: flex;
   flex-direction: column;
@@ -219,6 +224,10 @@
   border-radius: 4px;
   background-color: black;
 }
+.limit-btn:hover{
+  cursor: pointer;
+  background-color: rgb(94, 91, 91);
+}
 
 @media (min-width:640px) {
   .footer{
@@ -234,4 +243,9 @@
   position: absolute;
 
   }
+}
+
+.img{
+  width: 20px;
+  height: 20px;
 }
